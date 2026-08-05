@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Fermento & Sal — Padaria artesanal em Atibaia</title>
+<meta name="description" content="Pães de fermentação natural, bolos e doces em Atibaia. Encomende pelo WhatsApp.">
+<meta property="og:title" content="Veja como ficaria o site da sua padaria">
+<meta property="og:description" content="Catálogo com preços e pedido montado direto no WhatsApp.">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cacau:#1A1512;
+  --cacau-2:#251E19;
+  --cacau-3:#332A23;
+  --creme:#F0E6D6;
+  --creme-soft:#A99785;
+  --linha:#3D332B;
+  --framboesa:#C4315B;
+  --framboesa-esc:#9E2249;
+  --manteiga:#E8B450;
+
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Karla",system-ui,-apple-system,sans-serif;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cacau);color:var(--creme);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding-bottom:82px;
+}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--manteiga);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:1140px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section{padding-block:clamp(52px,8vw,94px)}
+.rule{height:1px;background:var(--linha);border:0}
+
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--manteiga)}
+.h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(40px,9vw,88px);line-height:.94;font-weight:800;letter-spacing:-.035em;
+}
+.h2{font-family:var(--display);font-size:clamp(28px,5vw,46px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+.lede{font-size:clamp(16px,2.1vw,19px);color:var(--creme-soft);max-width:48ch}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--framboesa);color:#fff;padding:15px 26px;border-radius:999px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--framboesa-esc);transform:translateY(-1px)}
+.btn-sm{padding:11px 19px;font-size:14px}
+.btn-ghost{background:transparent;color:var(--creme);border:1px solid var(--linha)}
+.btn-ghost:hover{background:var(--cacau-2);color:var(--creme)}
+
+.demo-flag{background:var(--creme);color:var(--cacau);text-align:center;font-size:12px;letter-spacing:.06em;padding:9px 16px;font-weight:500}
+.demo-pitch{background:var(--framboesa);color:#fff;padding:clamp(28px,5vw,44px) var(--pad)}
+.demo-pitch .inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.demo-pitch h3{font-family:var(--display);font-weight:800;letter-spacing:-.025em;font-size:clamp(22px,3.4vw,31px);line-height:1.06;max-width:20ch}
+.demo-pitch p{font-size:14px;opacity:.9;margin-top:9px;max-width:44ch}
+.demo-pitch .btn{background:#fff;color:var(--framboesa)}
+.demo-pitch .btn:hover{background:var(--creme)}
+
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.03em}
+.nav-links{display:none;gap:26px;font-size:14px;color:var(--creme-soft)}
+.nav-links a:hover{color:var(--creme)}
+@media(min-width:880px){.nav-links{display:flex}}
+
+/* ══ HERO ══ */
+.hero{padding-top:clamp(20px,3vw,38px);padding-bottom:clamp(38px,6vw,72px)}
+.hero-grid{display:grid;gap:clamp(28px,5vw,54px)}
+@media(min-width:920px){.hero-grid{grid-template-columns:1.08fr .92fr;align-items:center}}
+.hero-copy>*+*{margin-top:20px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.selo{
+  display:flex;flex-wrap:wrap;gap:0 26px;margin-top:32px;padding-top:22px;
+  border-top:1px solid var(--linha);font-size:13px;color:var(--creme-soft);
+}
+.selo b{display:block;font-family:var(--display);font-size:21px;font-weight:800;color:var(--creme);letter-spacing:-.02em;line-height:1.2}
+
+/* placeholders */
+.ph{
+  position:relative;aspect-ratio:4/5;display:flex;align-items:flex-end;overflow:hidden;border-radius:4px;
+  background:
+    radial-gradient(120% 90% at 24% 18%,#8C6A4A 0%,transparent 58%),
+    radial-gradient(100% 80% at 80% 84%,#5C3F2C 0%,transparent 60%),
+    linear-gradient(158deg,#6B4B33,#2A1D14);
+}
+.ph span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:13px 15px;line-height:1.4}
+.ph.sq{aspect-ratio:1}
+.ph.wide{aspect-ratio:16/10}
+
+/* ══ CATÁLOGO — cards que viram (3D) ══ */
+.abas{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.aba{
+  padding:9px 17px;border:1px solid var(--linha);border-radius:999px;
+  font-size:14px;color:var(--creme-soft);transition:.18s ease;
+}
+.aba:hover{border-color:var(--creme-soft);color:var(--creme)}
+.aba[aria-selected="true"]{background:var(--creme);color:var(--cacau);border-color:var(--creme);font-weight:600}
+
+.catalogo{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:clamp(14px,2.4vw,22px);margin-top:28px}
+
+.produto{perspective:1100px}
+.face-wrap{
+  position:relative;transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.25,.8,.3,1);
+}
+.produto.virado .face-wrap{transform:rotateY(180deg)}
+.face{
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--cacau-2);border:1px solid var(--linha);border-radius:6px;overflow:hidden;
+}
+.face-tras{
+  position:absolute;inset:0;transform:rotateY(180deg);
+  padding:20px;display:flex;flex-direction:column;justify-content:space-between;
+}
+.face-tras h4{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:-.02em}
+.face-tras p{font-size:13.5px;color:var(--creme-soft);margin-top:9px;line-height:1.5}
+.face-tras .voltar{margin-top:14px;font-size:13px;color:var(--manteiga);text-align:left}
+
+.p-corpo{padding:16px}
+.p-nome{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.p-un{font-size:12.5px;color:var(--creme-soft);margin-top:3px}
+.p-linha{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+.p-preco{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.02em}
+.p-info{font-size:12px;color:var(--creme-soft);text-decoration:underline;text-underline-offset:3px}
+.p-info:hover{color:var(--creme)}
+
+.qtd{display:flex;align-items:center;gap:0;margin-top:12px;border:1px solid var(--linha);border-radius:999px;overflow:hidden}
+.qtd button{width:38px;height:38px;font-size:19px;line-height:1;color:var(--creme-soft);transition:.15s ease}
+.qtd button:hover{background:var(--cacau-3);color:var(--creme)}
+.qtd .n{flex:1;text-align:center;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.produto.ativo .face:first-child{border-color:var(--framboesa)}
+
+/* ══ CARRINHO ══ */
+.pedido{
+  position:sticky;bottom:94px;z-index:40;margin-top:26px;
+  background:var(--creme);color:var(--cacau);border-radius:6px;
+  padding:18px 20px;display:none;gap:16px;align-items:center;flex-wrap:wrap;
+  box-shadow:0 20px 44px -26px rgba(0,0,0,.7);
+}
+.pedido.on{display:flex}
+.pedido-txt{flex:1;min-width:190px;font-size:13.5px;line-height:1.45;color:#6B584A}
+.pedido-txt b{display:block;font-family:var(--display);font-size:21px;font-weight:800;letter-spacing:-.02em;color:var(--cacau)}
+.pedido .btn{background:var(--cacau)}
+.pedido .btn:hover{background:#000}
+
+/* encomendas */
+.passos{display:grid;gap:2px;margin-top:34px;background:var(--linha);border:1px solid var(--linha);border-radius:6px;overflow:hidden}
+@media(min-width:760px){.passos{grid-template-columns:repeat(3,1fr)}}
+.passo{background:var(--cacau);padding:24px 20px}
+.passo .n{font-family:var(--display);font-size:13px;font-weight:800;color:var(--manteiga);letter-spacing:.1em}
+.passo b{display:block;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.02em;margin-top:10px}
+.passo p{font-size:14px;color:var(--creme-soft);margin-top:6px}
+
+/* galeria */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:32px}
+@media(min-width:760px){.galeria{grid-template-columns:repeat(4,1fr);gap:14px}}
+.galeria .ph:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+
+/* visitar */
+.info-grid{display:grid;gap:clamp(26px,5vw,50px);margin-top:34px}
+@media(min-width:820px){.info-grid{grid-template-columns:1fr 1fr}}
+.horas{width:100%;border-collapse:collapse;font-size:15px}
+.horas td{padding:12px 0;border-bottom:1px solid var(--linha)}
+.horas td:last-child{text-align:right;color:var(--creme-soft)}
+
+.quotes{display:grid;gap:clamp(18px,3.4vw,30px);margin-top:34px}
+@media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote p{font-family:var(--display);font-size:18px;line-height:1.35;font-weight:400;letter-spacing:-.015em}
+.quote cite{display:block;margin-top:13px;font-family:var(--body);font-size:13px;font-style:normal;color:var(--creme-soft);letter-spacing:.04em}
+
+footer{background:var(--cacau-2);color:var(--creme-soft);padding-block:clamp(44px,7vw,72px);border-top:1px solid var(--linha)}
+footer .brand{color:var(--creme);font-size:26px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--creme)}
+.foot-grid{display:grid;gap:26px;margin-top:26px}
+@media(min-width:760px){.foot-grid{grid-template-columns:repeat(3,1fr)}}
+.foot-grid h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6B584A;margin-bottom:10px;font-weight:600}
+.credit{margin-top:36px;padding-top:20px;border-top:1px solid var(--linha);font-size:12px;color:#6B584A}
+
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(26,21,18,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--linha);padding:12px var(--pad);
+  display:flex;align-items:center;gap:14px;justify-content:space-between;
+}
+.dock-txt{font-size:13px;color:var(--creme-soft);line-height:1.35}
+.dock-txt b{display:block;color:var(--creme);font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:-.02em}
+.dock .btn{background:#1FA855;flex:0 0 auto}
+.dock .btn:hover{background:#178B45}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-flag" id="demoFlag">Modelo de demonstração — as fotos e os produtos entram depois, com o material da sua padaria</div>
+
+<div class="wrap">
+  <nav>
+    <span class="brand" data-nome>Fermento &amp; Sal</span>
+    <div class="nav-links">
+      <a href="#catalogo">Cardápio</a>
+      <a href="#encomendas">Encomendas</a>
+      <a href="#visitar">Onde estamos</a>
+    </div>
+    <a class="btn btn-sm" href="#catalogo">Fazer pedido</a>
+  </nav>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div class="hero-copy rv">
+      <span class="eyebrow">Atibaia · Alvinópolis</span>
+      <h1 class="h1">Pão que leva<br>24 horas<br>pra ficar pronto.</h1>
+      <p class="lede">Fermentação natural, farinha moída na hora e forno a lenha. Monte seu pedido aqui e a gente separa — retirada no dia seguinte.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#catalogo">Ver o cardápio</a>
+        <a class="btn btn-ghost" href="#encomendas">Encomendar bolo</a>
+      </div>
+      <div class="selo">
+        <div><b>24h</b>de fermentação</div>
+        <div><b>Ter a dom</b>7h às 19h</div>
+        <div><b>Sem</b>conservante</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="ph"><span>Foto 1 — pão saindo do forno,<br>close, luz quente</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ CATÁLOGO ══ -->
+<section id="catalogo" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Cardápio</span>
+    <h2 class="h2" style="margin-top:12px">Monte seu pedido</h2>
+    <p class="lede" style="margin-top:14px">Escolha as quantidades. A gente soma tudo e você manda a lista pronta no WhatsApp.</p>
+  </div>
+
+  <div class="abas rv" id="abas" role="tablist"></div>
+  <div class="catalogo" id="catalogo-grid"></div>
+
+  <div class="pedido" id="pedido">
+    <div class="pedido-txt">
+      <b id="pedTotal">R$ 0</b>
+      <span id="pedLista"></span>
+    </div>
+    <a class="btn" id="pedBtn">Mandar pedido</a>
+  </div>
+
+  <p style="margin-top:18px;font-size:13.5px;color:var(--creme-soft)">Pedidos até as 16h saem no dia seguinte. Pagamento no PIX ou na retirada.</p>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ ENCOMENDAS ══ -->
+<section id="encomendas" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Bolos e festas</span>
+    <h2 class="h2" style="margin-top:12px">Encomendas</h2>
+    <p class="lede" style="margin-top:14px">Bolo de aniversário, mesa de doces, cesta de café da manhã. Combina com a gente pelo WhatsApp.</p>
+  </div>
+  <div class="passos rv">
+    <div class="passo"><span class="n">01</span><b>Você conta o que quer</b><p>Sabor, tamanho, data e quantas pessoas.</p></div>
+    <div class="passo"><span class="n">02</span><b>A gente fecha o valor</b><p>Orçamento no mesmo dia, sem surpresa depois.</p></div>
+    <div class="passo"><span class="n">03</span><b>Você retira ou entregamos</b><p>Entrega em Atibaia a partir de R$ 15.</p></div>
+  </div>
+  <a class="btn rv" style="margin-top:26px" data-wa="Olá! Vim pelo site e queria fazer uma encomenda.">Pedir orçamento de encomenda</a>
+</section>
+
+<!-- ══ GALERIA ══ -->
+<section class="wrap" style="padding-top:0">
+  <div class="rv">
+    <span class="eyebrow">A casa</span>
+    <h2 class="h2" style="margin-top:12px">Por dentro</h2>
+  </div>
+  <div class="galeria rv">
+    <div class="ph sq"><span>Foto 2 — a bancada</span></div>
+    <div class="ph sq"><span>Foto 3 — bolo</span></div>
+    <div class="ph sq"><span>Foto 4 — vitrine</span></div>
+    <div class="ph sq"><span>Foto 5 — forno</span></div>
+    <div class="ph sq"><span>Foto 6 — a equipe</span></div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<section class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Clientes</span>
+    <h2 class="h2" style="margin-top:12px">O que dizem</h2>
+  </div>
+  <div class="quotes rv">
+    <blockquote class="quote">
+      <p>“Parei de comprar pão no mercado. Sério, não dá pra voltar depois que você prova esse.”</p>
+      <cite>Fernanda L. — Atibaia</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“Encomendei o bolo da minha mãe na quinta e retirei no sábado. Ficou exatamente como pedi.”</p>
+      <cite>Diego A. — Jardim Paulista</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“Mando o pedido pelo site na noite anterior e só passo pra pegar. Economizo meia hora de fila.”</p>
+      <cite>Cris M. — Alvinópolis</cite>
+    </blockquote>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ VISITAR ══ -->
+<section id="visitar" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Visitar</span>
+    <h2 class="h2" style="margin-top:12px">Onde estamos</h2>
+  </div>
+  <div class="info-grid rv">
+    <div>
+      <div class="ph wide"><span>Foto — a fachada</span></div>
+      <p style="margin-top:18px;font-size:16px;line-height:1.7">
+        Rua Exemplo, 456 — Alvinópolis<br>
+        Atibaia, SP<br>
+        <a href="https://maps.google.com/?q=Atibaia+SP" target="_blank" rel="noopener" style="color:var(--manteiga)">Abrir no Google Maps →</a>
+      </p>
+    </div>
+    <div>
+      <table class="horas">
+        <tr><td>Terça a sexta</td><td>7h — 19h</td></tr>
+        <tr><td>Sábado e domingo</td><td>7h — 13h</td></tr>
+        <tr><td>Segunda</td><td>Fechado</td></tr>
+      </table>
+      <p style="margin-top:18px;font-size:14px;color:var(--creme-soft)">O pão de fermentação natural sai às 8h e às 16h. Depois das 18h costuma ter acabado.</p>
+      <a class="btn" style="margin-top:24px" data-wa="Olá! Vim pelo site e queria fazer um pedido.">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="demo-pitch" id="demoPitch">
+  <div class="inner">
+    <div>
+      <h3>Sua padaria pode ter esta página ainda esta semana.</h3>
+      <p>Com os seus produtos, suas fotos e seu WhatsApp — e o pedido já chega somado, sem ninguém digitar item por item.</p>
+    </div>
+    <a class="btn" id="pitchBtn">Falar com o Lorenzo</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="brand" data-nome>Fermento &amp; Sal</span>
+    <div class="foot-grid">
+      <div><h4>Pedidos</h4><p><a data-wa="Olá! Vim pelo site.">WhatsApp</a><br><a href="#">Instagram</a></p></div>
+      <div><h4>Endereço</h4><p>Rua Exemplo, 456<br>Alvinópolis — Atibaia, SP</p></div>
+      <div><h4>Horário</h4><p>Ter a sex, 7h — 19h<br>Sáb e dom, 7h — 13h</p></div>
+    </div>
+    <p class="credit">© <span id="ano"></span> <span data-nome>Fermento &amp; Sal</span>. Site por Lorenzo Carvalho — Atibaia.</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <div class="dock-txt"><b>Peça pelo WhatsApp</b>Retirada a partir do dia seguinte</div>
+  <a class="btn" data-wa="Olá! Vim pelo site e queria fazer um pedido.">WhatsApp</a>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ▼▼▼  MUDE SÓ ESTE BLOCO  ▼▼▼
+   ═══════════════════════════════════════════════════════ */
+const CONFIG = {
+  modo: "demo",              // "demo" = seus botões · "cliente" = botões do cliente
+  nome: "Fermento & Sal",
+  meuWhatsapp: "5511900000000",
+  whatsappCliente: "5511900000000",
+
+  categorias: ["Pães", "Doces", "Bolos", "Salgados"],
+
+  produtos: [
+    { nome:"Pão de fermentação natural", cat:"Pães",     un:"unidade · 800 g", preco:32, sobre:"Farinha orgânica, água, sal e fermento natural. 24 horas de fermentação, assado em forno a lenha." },
+    { nome:"Pão de forma integral",      cat:"Pães",     un:"unidade · 500 g", preco:26, sobre:"Trigo integral e aveia. Fatiado na hora, se você pedir." },
+    { nome:"Baguete rústica",            cat:"Pães",     un:"unidade",         preco:14, sobre:"Casca crocante, miolo aerado. Sai do forno às 8h e às 16h." },
+    { nome:"Focaccia de alecrim",        cat:"Pães",     un:"assadeira P",     preco:38, sobre:"Azeite, alecrim fresco e flor de sal. Boa para dividir." },
+    { nome:"Croissant de manteiga",      cat:"Doces",    un:"unidade",         preco:12, sobre:"Massa folhada com manteiga francesa, 27 camadas, laminada à mão." },
+    { nome:"Cookie de chocolate",        cat:"Doces",    un:"unidade · 90 g",  preco:11, sobre:"Chocolate 70% em pedaços grandes e um toque de flor de sal por cima." },
+    { nome:"Torta de limão",             cat:"Doces",    un:"fatia",           preco:18, sobre:"Creme de limão siciliano e merengue maçaricado na hora." },
+    { nome:"Bolo de cenoura",            cat:"Bolos",    un:"inteiro · 1,2 kg",preco:78, sobre:"Cobertura de brigadeiro meio amargo. Serve de 10 a 12 pessoas." },
+    { nome:"Bolo de fubá cremoso",       cat:"Bolos",    un:"inteiro · 1 kg",  preco:65, sobre:"Fubá de moinho de pedra e queijo minas curado na massa." },
+    { nome:"Empada de palmito",          cat:"Salgados", un:"unidade",         preco:13, sobre:"Massa amanteigada e palmito pupunha refogado." },
+    { nome:"Quiche de alho-poró",        cat:"Salgados", un:"fatia",           preco:19, sobre:"Base crocante, creme de alho-poró e queijo gruyère." },
+    { nome:"Coxinha de costela",         cat:"Salgados", un:"unidade",         preco:15, sobre:"Costela desfiada cozida por seis horas, massa de batata." }
+  ]
+};
+/* ═══════════════════════════════════════════════════════
+   ▲▲▲  DAQUI PRA BAIXO NÃO PRECISA MEXER  ▲▲▲
+   ═══════════════════════════════════════════════════════ */
+
+const ehDemo = CONFIG.modo === "demo";
+const numero = ehDemo ? CONFIG.meuWhatsapp : CONFIG.whatsappCliente;
+const wa = t => `https://wa.me/${numero}?text=${encodeURIComponent(t)}`;
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+
+document.querySelectorAll("[data-nome]").forEach(el => el.textContent = CONFIG.nome);
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+if (ehDemo){
+  const p = document.getElementById("pitchBtn");
+  p.href = wa("Oi Lorenzo! Vi a página de exemplo e queria uma pra minha padaria.");
+  p.target = "_blank"; p.rel = "noopener";
+} else {
+  document.getElementById("demoFlag").remove();
+  document.getElementById("demoPitch").remove();
+}
+
+document.querySelectorAll("[data-wa]").forEach(el => {
+  el.href = wa(el.dataset.wa); el.target = "_blank"; el.rel = "noopener";
+});
+
+/* ── abas ── */
+const abasEl = document.getElementById("abas");
+const grid = document.getElementById("catalogo-grid");
+const carrinho = new Map();   // índice do produto → quantidade
+let filtro = "Todos";
+
+["Todos", ...CONFIG.categorias].forEach(cat => {
+  const b = document.createElement("button");
+  b.className = "aba"; b.type = "button"; b.role = "tab";
+  b.textContent = cat;
+  b.setAttribute("aria-selected", String(cat === "Todos"));
+  b.addEventListener("click", () => {
+    filtro = cat;
+    abasEl.querySelectorAll(".aba").forEach(x => x.setAttribute("aria-selected", String(x === b)));
+    desenhar();
+  });
+  abasEl.appendChild(b);
+});
+
+/* ── catálogo ── */
+function desenhar(){
+  grid.innerHTML = "";
+  CONFIG.produtos.forEach((p, i) => {
+    if (filtro !== "Todos" && p.cat !== filtro) return;
+    const qtd = carrinho.get(i) || 0;
+
+    const art = document.createElement("article");
+    art.className = "produto" + (qtd ? " ativo" : "");
+    art.innerHTML = `
+      <div class="face-wrap">
+        <div class="face">
+          <div class="ph sq"><span>Foto — ${p.nome}</span></div>
+          <div class="p-corpo">
+            <h3 class="p-nome">${p.nome}</h3>
+            <p class="p-un">${p.un}</p>
+            <div class="p-linha">
+              <span class="p-preco">${brl(p.preco)}</span>
+              <button class="p-info" type="button" data-virar>o que leva</button>
+            </div>
+            <div class="qtd">
+              <button type="button" data-menos aria-label="Tirar um ${p.nome}">−</button>
+              <span class="n" data-n>${qtd}</span>
+              <button type="button" data-mais aria-label="Adicionar um ${p.nome}">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="face face-tras">
+          <div>
+            <h4>${p.nome}</h4>
+            <p>${p.sobre}</p>
+          </div>
+          <button class="voltar" type="button" data-virar>← voltar</button>
+        </div>
+      </div>`;
+
+    art.querySelectorAll("[data-virar]").forEach(b =>
+      b.addEventListener("click", () => art.classList.toggle("virado")));
+    art.querySelector("[data-mais]").addEventListener("click", () => mudar(i, +1, art));
+    art.querySelector("[data-menos]").addEventListener("click", () => mudar(i, -1, art));
+
+    grid.appendChild(art);
+  });
+}
+
+function mudar(i, delta, art){
+  const novo = Math.max(0, (carrinho.get(i) || 0) + delta);
+  novo ? carrinho.set(i, novo) : carrinho.delete(i);
+  art.querySelector("[data-n]").textContent = novo;
+  art.classList.toggle("ativo", novo > 0);
+  atualizarPedido();
+}
+
+/* ── pedido ── */
+const pedido = document.getElementById("pedido");
+const pedTotal = document.getElementById("pedTotal");
+const pedLista = document.getElementById("pedLista");
+const pedBtn = document.getElementById("pedBtn");
+
+function atualizarPedido(){
+  if (!carrinho.size){ pedido.classList.remove("on"); return; }
+  pedido.classList.add("on");
+
+  let total = 0, itens = 0, linhas = [];
+  carrinho.forEach((q, i) => {
+    const p = CONFIG.produtos[i];
+    total += p.preco * q; itens += q;
+    linhas.push(`• ${q}x ${p.nome} — ${brl(p.preco * q)}`);
+  });
+
+  pedTotal.textContent = brl(total);
+  pedLista.textContent = `${itens} ${itens === 1 ? "item" : "itens"} · ${[...carrinho.keys()].map(i => CONFIG.produtos[i].nome).join(" · ")}`;
+
+  pedBtn.href = wa(
+    `Olá! Vim pelo site da ${CONFIG.nome} e queria pedir:\n\n`
+    + linhas.join("\n")
+    + `\n\nTotal: ${brl(total)}\n\nQuando posso retirar?`
+  );
+  pedBtn.target = "_blank"; pedBtn.rel = "noopener";
+}
+
+desenhar();
+
+/* ── revelação ── */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

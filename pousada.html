@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Recanto da Neblina — Pousada em Atibaia</title>
+<meta name="description" content="Pousada na serra de Atibaia. Reserve direto, sem taxa de intermediário.">
+<meta property="og:title" content="Veja como ficaria o site da sua pousada">
+<meta property="og:description" content="Reserva direta no WhatsApp, sem comissão de Booking ou Airbnb.">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --mata:#16241E;
+  --mata-soft:#5A6E64;
+  --eucalipto:#47695B;
+  --neblina:#DFE5E1;
+  --vidro:#EFF3F0;
+  --linha:#C3CFC8;
+  --morango:#A62B39;
+  --morango-esc:#83202C;
+
+  --display:"Fraunces",Georgia,serif;
+  --body:"Karla",system-ui,-apple-system,sans-serif;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--neblina);color:var(--mata);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding-bottom:78px;
+  overflow-x:hidden;
+}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--morango);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1140px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section{padding-block:clamp(52px,8vw,96px)}
+.rule{height:1px;background:var(--linha);border:0}
+
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--eucalipto)}
+.h1{
+  font-family:var(--display);font-optical-sizing:auto;
+  font-size:clamp(36px,7.4vw,76px);line-height:1;
+  font-weight:300;letter-spacing:-.02em;
+  font-variation-settings:"SOFT" 40,"WONK" 1;
+}
+.h1 em{font-style:italic;font-weight:400}
+.h2{
+  font-family:var(--display);font-size:clamp(27px,4.6vw,44px);
+  line-height:1.08;font-weight:300;letter-spacing:-.015em;
+  font-variation-settings:"SOFT" 40,"WONK" 1;
+}
+.lede{font-size:clamp(16px,2.1vw,19px);color:var(--mata-soft);max-width:48ch}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--morango);color:#fff;padding:15px 26px;border-radius:999px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--morango-esc);transform:translateY(-1px)}
+.btn-sm{padding:11px 19px;font-size:14px}
+.btn-ghost{background:transparent;color:var(--mata);border:1px solid var(--linha)}
+.btn-ghost:hover{background:var(--vidro);color:var(--mata)}
+
+/* faixas de demonstração */
+.demo-flag{background:var(--mata);color:var(--vidro);text-align:center;font-size:12px;letter-spacing:.06em;padding:9px 16px}
+.demo-pitch{background:var(--morango);color:#fff;padding:clamp(28px,5vw,44px) var(--pad)}
+.demo-pitch .inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.demo-pitch h3{font-family:var(--display);font-weight:300;font-size:clamp(21px,3.3vw,30px);line-height:1.18;max-width:22ch}
+.demo-pitch p{font-size:14px;opacity:.88;margin-top:8px;max-width:44ch}
+.demo-pitch .btn{background:#fff;color:var(--morango)}
+.demo-pitch .btn:hover{background:var(--vidro)}
+
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{font-family:var(--display);font-size:19px;font-weight:400;letter-spacing:-.01em}
+.nav-links{display:none;gap:26px;font-size:14px;color:var(--mata-soft)}
+.nav-links a:hover{color:var(--mata)}
+@media(min-width:880px){.nav-links{display:flex}}
+
+/* ══ HERO COM PROFUNDIDADE (camadas em 3D) ══ */
+.hero{
+  position:relative;min-height:clamp(460px,78vh,660px);
+  display:flex;align-items:flex-end;overflow:hidden;
+  background:linear-gradient(#C9D6D0 0%,#DDE6E1 42%,#DFE5E1 100%);
+  perspective:900px;
+}
+.serra{position:absolute;inset:0;pointer-events:none}
+.serra svg{position:absolute;bottom:0;left:-6%;width:112%;height:auto;display:block;will-change:transform}
+.camada-1{opacity:.30}
+.camada-2{opacity:.52}
+.camada-3{opacity:.78}
+.camada-4{opacity:1}
+.sol{
+  position:absolute;top:14%;left:50%;width:clamp(110px,20vw,190px);aspect-ratio:1;
+  border-radius:50%;transform:translateX(-50%);
+  background:radial-gradient(circle,#F6EDE0 0%,#EBDCC8 42%,rgba(235,220,200,0) 72%);
+}
+.hero-inner{position:relative;z-index:3;padding-bottom:clamp(38px,7vw,74px);width:100%}
+.hero-inner>*+*{margin-top:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* ══ CAIXA DE RESERVA ══ */
+.reserva{
+  background:var(--vidro);border:1px solid var(--linha);border-radius:6px;
+  padding:clamp(20px,3.4vw,30px);margin-top:-46px;position:relative;z-index:6;
+  box-shadow:0 18px 46px -30px rgba(22,36,30,.55);
+}
+.res-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.res-grid{grid-template-columns:1fr 1fr 1fr 1fr;align-items:end}}
+.campo label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--mata-soft);margin-bottom:7px}
+.campo input,.campo select{
+  width:100%;padding:13px 14px;font:inherit;font-size:15px;color:var(--mata);
+  background:#fff;border:1px solid var(--linha);border-radius:4px;
+}
+.campo input:focus,.campo select:focus{outline:2px solid var(--eucalipto);outline-offset:0}
+.res-resumo{
+  margin-top:16px;padding-top:16px;border-top:1px solid var(--linha);
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+}
+.res-total{font-family:var(--display);font-size:clamp(19px,3vw,26px);font-weight:400}
+.res-total small{display:block;font-family:var(--body);font-size:13px;color:var(--mata-soft);font-weight:400;margin-top:3px}
+
+/* ══ COMPARATIVO — assinatura ══ */
+.comparar{display:grid;gap:16px;margin-top:34px}
+@media(min-width:700px){.comparar{grid-template-columns:1fr 1fr}}
+.cmp{border:1px solid var(--linha);border-radius:6px;padding:clamp(20px,3vw,28px);background:var(--vidro)}
+.cmp.destaque{background:var(--mata);color:var(--neblina);border-color:var(--mata)}
+.cmp .rotulo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--mata-soft)}
+.cmp.destaque .rotulo{color:#9FB3A9}
+.cmp .valor{font-family:var(--display);font-size:clamp(34px,6vw,50px);font-weight:300;line-height:1;margin-top:12px}
+.cmp .obs{font-size:14px;color:var(--mata-soft);margin-top:12px}
+.cmp.destaque .obs{color:#9FB3A9}
+
+/* ══ QUARTOS com inclinação 3D ══ */
+.quartos{display:grid;gap:clamp(16px,2.6vw,24px);margin-top:38px}
+@media(min-width:760px){.quartos{grid-template-columns:repeat(3,1fr)}}
+.quarto{
+  background:var(--vidro);border:1px solid var(--linha);border-radius:6px;overflow:hidden;
+  transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease;
+  will-change:transform;
+}
+.quarto:hover{box-shadow:0 24px 50px -32px rgba(22,36,30,.6)}
+.quarto .corpo{padding:20px}
+.quarto h3{font-family:var(--display);font-size:23px;font-weight:400;font-variation-settings:"SOFT" 40}
+.quarto .cap{font-size:13px;color:var(--mata-soft);margin-top:3px}
+.quarto .preco{font-family:var(--display);font-size:26px;font-weight:400;margin-top:14px}
+.quarto .preco span{font-family:var(--body);font-size:13px;color:var(--mata-soft)}
+.quarto .btn{margin-top:16px;width:100%}
+
+/* placeholders de foto */
+.ph{
+  position:relative;aspect-ratio:4/3;display:flex;align-items:flex-end;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 22% 18%,#9FB3A9 0%,transparent 58%),
+    radial-gradient(100% 80% at 82% 82%,#6E8A7C 0%,transparent 60%),
+    linear-gradient(158deg,#5D7568,#22332B);
+}
+.ph span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);padding:13px 15px;line-height:1.4}
+.ph.wide{aspect-ratio:16/9}
+.ph.sq{aspect-ratio:1}
+
+/* galeria */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
+@media(min-width:760px){.galeria{grid-template-columns:repeat(4,1fr);gap:14px}}
+.galeria .ph:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+
+/* estrutura */
+.itens{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;margin-top:34px;background:var(--linha);border:1px solid var(--linha)}
+.item{background:var(--neblina);padding:20px 18px}
+.item b{display:block;font-family:var(--display);font-size:19px;font-weight:400}
+.item p{font-size:13.5px;color:var(--mata-soft);margin-top:4px}
+
+/* chegar */
+.info-grid{display:grid;gap:clamp(26px,5vw,50px);margin-top:36px}
+@media(min-width:820px){.info-grid{grid-template-columns:1fr 1fr}}
+.rota{list-style:none}
+.rota li{padding:14px 0;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;gap:16px;font-size:15px}
+.rota li span{color:var(--mata-soft);white-space:nowrap}
+
+/* depoimentos */
+.quotes{display:grid;gap:clamp(18px,3.4vw,30px);margin-top:36px}
+@media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote p{font-family:var(--display);font-size:18.5px;line-height:1.45;font-style:italic;font-weight:300}
+.quote cite{display:block;margin-top:13px;font-family:var(--body);font-size:13px;font-style:normal;color:var(--mata-soft);letter-spacing:.04em}
+
+footer{background:var(--mata);color:#9FB3A9;padding-block:clamp(44px,7vw,72px)}
+footer .brand{color:var(--vidro);font-size:26px}
+footer a{color:#9FB3A9;text-decoration:none}
+footer a:hover{color:#fff}
+.foot-grid{display:grid;gap:26px;margin-top:26px}
+@media(min-width:760px){.foot-grid{grid-template-columns:repeat(3,1fr)}}
+.foot-grid h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5A6E64;margin-bottom:10px;font-weight:600}
+.credit{margin-top:36px;padding-top:20px;border-top:1px solid #2E4239;font-size:12px;color:#5A6E64}
+
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(239,243,240,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--linha);padding:12px var(--pad);
+  display:flex;align-items:center;gap:14px;justify-content:space-between;
+}
+.dock-txt{font-size:13px;color:var(--mata-soft);line-height:1.35}
+.dock-txt b{display:block;color:var(--mata);font-family:var(--display);font-size:16px;font-weight:400}
+.dock .btn{background:#1FA855;flex:0 0 auto}
+.dock .btn:hover{background:#178B45}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .serra svg{transform:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-flag" id="demoFlag">Modelo de demonstração — as fotos e os textos entram depois, com o material da sua pousada</div>
+
+<div class="wrap">
+  <nav>
+    <span class="brand" data-nome>Recanto da Neblina</span>
+    <div class="nav-links">
+      <a href="#quartos">Quartos</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#chegar">Como chegar</a>
+    </div>
+    <a class="btn btn-sm" data-wa="Olá! Vim pelo site e queria consultar disponibilidade.">Reservar</a>
+  </nav>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="serra" id="serra" aria-hidden="true">
+    <div class="sol"></div>
+    <svg class="camada-1" data-p="0.10" viewBox="0 0 1200 340" preserveAspectRatio="none"><path fill="#47695B" d="M0 340V190l120-64 96 42 118-88 132 76 104-52 128 84 116-64 130 72 138-58 118 60v182z"/></svg>
+    <svg class="camada-2" data-p="0.20" viewBox="0 0 1200 300" preserveAspectRatio="none"><path fill="#3B5B4D" d="M0 300V176l142 60 128-90 130 66 116-44 142 92 122-72 128 58 152-64v118z"/></svg>
+    <svg class="camada-3" data-p="0.34" viewBox="0 0 1200 240" preserveAspectRatio="none"><path fill="#2A4438" d="M0 240V150l124 44 134-72 118 58 148-40 128 68 136-52 122 46 90-28v66z"/></svg>
+    <svg class="camada-4" data-p="0.52" viewBox="0 0 1200 170" preserveAspectRatio="none"><path fill="#16241E" d="M0 170V104l150 32 122-46 146 40 132-30 128 44 152-38 134 32 116-20v52z"/></svg>
+  </div>
+  <div class="hero-inner wrap">
+    <span class="eyebrow">Atibaia · Serra</span>
+    <h1 class="h1">A 65 km de São Paulo,<br>e <em>nenhum som dela</em>.</h1>
+    <p class="lede">Sete quartos, café da manhã até as 11h e a Pedra Grande a vinte minutos. Reserve direto com a gente — sem intermediário, sem taxa.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#reservar">Ver disponibilidade</a>
+      <a class="btn btn-ghost" href="#quartos">Conhecer os quartos</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ RESERVA ══ -->
+<div class="wrap" id="reservar">
+  <div class="reserva">
+    <div class="res-grid">
+      <div class="campo">
+        <label for="entrada">Entrada</label>
+        <input type="date" id="entrada">
+      </div>
+      <div class="campo">
+        <label for="saida">Saída</label>
+        <input type="date" id="saida">
+      </div>
+      <div class="campo">
+        <label for="hospedes">Hóspedes</label>
+        <select id="hospedes">
+          <option value="1">1 pessoa</option>
+          <option value="2" selected>2 pessoas</option>
+          <option value="3">3 pessoas</option>
+          <option value="4">4 pessoas</option>
+          <option value="5">5 ou mais</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="acomodacao">Acomodação</label>
+        <select id="acomodacao"></select>
+      </div>
+    </div>
+    <div class="res-resumo">
+      <div class="res-total" id="resTotal">Escolha as datas
+        <small id="resDetalhe">A gente confirma a disponibilidade no WhatsApp</small>
+      </div>
+      <a class="btn" id="resBtn">Consultar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RESERVA DIRETA ══ -->
+<section class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Por que reservar aqui</span>
+    <h2 class="h2" style="margin-top:12px">O mesmo quarto, dois preços</h2>
+    <p class="lede" style="margin-top:14px">Nos sites de reserva, uma parte da diária vai para a plataforma. Falando direto com a gente, essa parte fica com você.</p>
+  </div>
+  <div class="comparar rv">
+    <div class="cmp">
+      <span class="rotulo">Pelos sites de reserva</span>
+      <div class="valor">R$ 520</div>
+      <p class="obs">A diária, com a comissão da plataforma embutida. Cancelamento e alterações passam por eles.</p>
+    </div>
+    <div class="cmp destaque">
+      <span class="rotulo">Direto no WhatsApp</span>
+      <div class="valor">R$ 450</div>
+      <p class="obs">Mesmo quarto, mesma cama, mesmo café. Você fala com quem cuida da pousada, não com um atendente.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ QUARTOS ══ -->
+<section id="quartos" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Acomodações</span>
+    <h2 class="h2" style="margin-top:12px">Os quartos</h2>
+  </div>
+  <div class="quartos rv" id="listaQuartos"></div>
+  <p style="margin-top:18px;font-size:13.5px;color:var(--mata-soft)">Diárias por casal. Pessoa extra R$ 90. Café da manhã incluso em todas as acomodações.</p>
+</section>
+
+<!-- ══ GALERIA ══ -->
+<section class="wrap" style="padding-top:0">
+  <div class="rv">
+    <span class="eyebrow">A pousada</span>
+    <h2 class="h2" style="margin-top:12px">Por dentro</h2>
+  </div>
+  <div class="galeria rv">
+    <div class="ph sq"><span>Foto 1 — a vista de manhã</span></div>
+    <div class="ph sq"><span>Foto 2 — quarto</span></div>
+    <div class="ph sq"><span>Foto 3 — café</span></div>
+    <div class="ph sq"><span>Foto 4 — área externa</span></div>
+    <div class="ph sq"><span>Foto 5 — lareira</span></div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ ESTRUTURA ══ -->
+<section id="estrutura" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Estrutura</span>
+    <h2 class="h2" style="margin-top:12px">O que tem aqui</h2>
+  </div>
+  <div class="itens rv">
+    <div class="item"><b>Café da manhã</b><p>Servido até as 11h, com pão da casa</p></div>
+    <div class="item"><b>Lareira</b><p>Na sala comum, acesa nas noites frias</p></div>
+    <div class="item"><b>Piscina</b><p>Aquecida de maio a setembro</p></div>
+    <div class="item"><b>Wi-Fi</b><p>Fibra em todos os quartos</p></div>
+    <div class="item"><b>Estacionamento</b><p>Coberto, dentro da propriedade</p></div>
+    <div class="item"><b>Pet</b><p>Aceito mediante aviso na reserva</p></div>
+    <div class="item"><b>Trilha</b><p>Curta, sai do fundo do terreno</p></div>
+    <div class="item"><b>Check-in</b><p>A partir das 14h · saída até 12h</p></div>
+  </div>
+</section>
+
+<!-- ══ COMO CHEGAR ══ -->
+<section id="chegar" class="wrap" style="padding-top:0">
+  <div class="rv">
+    <span class="eyebrow">Localização</span>
+    <h2 class="h2" style="margin-top:12px">Como chegar</h2>
+  </div>
+  <div class="info-grid rv">
+    <div>
+      <div class="ph wide"><span>Foto — a estrada de entrada</span></div>
+      <p style="margin-top:18px;font-size:16px;line-height:1.7">
+        Estrada Municipal do Exemplo, km 3<br>
+        Atibaia, SP<br>
+        <a href="https://maps.google.com/?q=Atibaia+SP" target="_blank" rel="noopener" style="color:var(--morango)">Abrir no Google Maps →</a>
+      </p>
+    </div>
+    <div>
+      <ul class="rota">
+        <li>De São Paulo, pela Fernão Dias <span>65 km</span></li>
+        <li>Do centro de Atibaia <span>12 min</span></li>
+        <li>Da Pedra Grande <span>20 min</span></li>
+        <li>Do aeroporto de Guarulhos <span>50 min</span></li>
+      </ul>
+      <p style="margin-top:18px;font-size:14px;color:var(--mata-soft)">Os últimos 800 metros são de estrada de terra, bem conservada. Carro comum chega tranquilo.</p>
+      <a class="btn" style="margin-top:24px" data-wa="Olá! Vim pelo site e queria consultar disponibilidade.">Consultar disponibilidade</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<section class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Hóspedes</span>
+    <h2 class="h2" style="margin-top:12px">Quem já ficou</h2>
+  </div>
+  <div class="quotes rv">
+    <blockquote class="quote">
+      <p>“Acordei com neblina cobrindo o vale inteiro e tomei café olhando aquilo. Vale a viagem só por isso.”</p>
+      <cite>Marcos T. — São Paulo</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“Reservei pelo WhatsApp num sábado à noite e me responderam em dez minutos. Saiu mais barato que pelo aplicativo.”</p>
+      <cite>Juliana P. — Campinas</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“Levamos a cachorra e ninguém fez cara feia. Ela dormiu na frente da lareira as duas noites.”</p>
+      <cite>Rafael e Ana — Jundiaí</cite>
+    </blockquote>
+  </div>
+</section>
+
+<div class="demo-pitch" id="demoPitch">
+  <div class="inner">
+    <div>
+      <h3>Sua pousada pode ter esta página ainda esta semana.</h3>
+      <p>Com as suas fotos, seus quartos e seu WhatsApp — e cada reserva direta é uma comissão que você deixa de pagar.</p>
+    </div>
+    <a class="btn" id="pitchBtn">Falar com o Lorenzo</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="brand" data-nome>Recanto da Neblina</span>
+    <div class="foot-grid">
+      <div><h4>Reservas</h4><p><a data-wa="Olá! Vim pelo site.">WhatsApp</a><br><a href="#">Instagram</a></p></div>
+      <div><h4>Endereço</h4><p>Estrada Municipal do Exemplo, km 3<br>Atibaia, SP</p></div>
+      <div><h4>Horários</h4><p>Check-in a partir das 14h<br>Check-out até 12h</p></div>
+    </div>
+    <p class="credit">© <span id="ano"></span> <span data-nome>Recanto da Neblina</span>. Site por Lorenzo Carvalho — Atibaia.</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <div class="dock-txt"><b>Reserve direto</b>Resposta em poucos minutos</div>
+  <a class="btn" data-wa="Olá! Vim pelo site e queria consultar disponibilidade.">WhatsApp</a>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ▼▼▼  MUDE SÓ ESTE BLOCO  ▼▼▼
+   ═══════════════════════════════════════════════════════ */
+const CONFIG = {
+  modo: "demo",              // "demo" = seus botões · "cliente" = botões do cliente
+  nome: "Recanto da Neblina",
+  meuWhatsapp: "5511900000000",
+  whatsappCliente: "5511900000000",
+
+  quartos: [
+    { nome:"Quarto Mata",     cap:"Até 2 pessoas · 22 m²",           diaria:390, foto:"Foto — Quarto Mata" },
+    { nome:"Chalé Neblina",   cap:"Até 2 pessoas · lareira · 30 m²", diaria:490, foto:"Foto — Chalé Neblina" },
+    { nome:"Casa da Família", cap:"Até 5 pessoas · cozinha · 54 m²",  diaria:690, foto:"Foto — Casa da Família" }
+  ]
+};
+/* ═══════════════════════════════════════════════════════
+   ▲▲▲  DAQUI PRA BAIXO NÃO PRECISA MEXER  ▲▲▲
+   ═══════════════════════════════════════════════════════ */
+
+const ehDemo = CONFIG.modo === "demo";
+const numero = ehDemo ? CONFIG.meuWhatsapp : CONFIG.whatsappCliente;
+const wa = t => `https://wa.me/${numero}?text=${encodeURIComponent(t)}`;
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+
+document.querySelectorAll("[data-nome]").forEach(el => el.textContent = CONFIG.nome);
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+if (ehDemo){
+  const p = document.getElementById("pitchBtn");
+  p.href = wa("Oi Lorenzo! Vi a página de exemplo e queria uma pra minha pousada.");
+  p.target = "_blank"; p.rel = "noopener";
+} else {
+  document.getElementById("demoFlag").remove();
+  document.getElementById("demoPitch").remove();
+}
+
+document.querySelectorAll("[data-wa]").forEach(el => {
+  el.href = wa(el.dataset.wa); el.target = "_blank"; el.rel = "noopener";
+});
+
+/* ── quartos ── */
+const lista = document.getElementById("listaQuartos");
+const selAcom = document.getElementById("acomodacao");
+
+CONFIG.quartos.forEach((q, i) => {
+  const card = document.createElement("article");
+  card.className = "quarto";
+  card.innerHTML = `
+    <div class="ph"><span>${q.foto}</span></div>
+    <div class="corpo">
+      <h3>${q.nome}</h3>
+      <p class="cap">${q.cap}</p>
+      <p class="preco">${brl(q.diaria)} <span>/ noite</span></p>
+      <a class="btn" target="_blank" rel="noopener"
+         href="${wa(`Olá! Vim pelo site do ${CONFIG.nome} e queria reservar o ${q.nome}. Tem disponibilidade?`)}">Reservar este</a>
+    </div>`;
+  lista.appendChild(card);
+
+  const op = document.createElement("option");
+  op.value = i; op.textContent = q.nome;
+  selAcom.appendChild(op);
+});
+
+/* inclinação 3D suave nos cards (desligada no toque) */
+if (window.matchMedia("(hover:hover)").matches &&
+    !window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  document.querySelectorAll(".quarto").forEach(card => {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-4px)`;
+    });
+    card.addEventListener("pointerleave", () => card.style.transform = "");
+  });
+}
+
+/* ── cálculo da reserva ── */
+const entrada = document.getElementById("entrada");
+const saida = document.getElementById("saida");
+const hospedes = document.getElementById("hospedes");
+const resTotal = document.getElementById("resTotal");
+const resDetalhe = document.getElementById("resDetalhe");
+const resBtn = document.getElementById("resBtn");
+
+const hoje = new Date().toISOString().slice(0,10);
+entrada.min = hoje; saida.min = hoje;
+
+function calcular(){
+  const q = CONFIG.quartos[selAcom.value];
+  const d1 = entrada.value ? new Date(entrada.value) : null;
+  const d2 = saida.value ? new Date(saida.value) : null;
+  let noites = 0;
+  if (d1 && d2) noites = Math.round((d2 - d1) / 86400000);
+
+  if (noites > 0){
+    const total = noites * q.diaria;
+    resTotal.firstChild.textContent = brl(total) + " ";
+    resDetalhe.textContent = `${noites} ${noites===1?"noite":"noites"} · ${q.nome} · ${hospedes.options[hospedes.selectedIndex].text}`;
+    const msg = `Olá! Vim pelo site do ${CONFIG.nome} e queria reservar:\n\n`
+      + `• ${q.nome}\n`
+      + `• Entrada ${d1.toLocaleDateString("pt-BR",{timeZone:"UTC"})} · Saída ${d2.toLocaleDateString("pt-BR",{timeZone:"UTC"})}\n`
+      + `• ${noites} ${noites===1?"noite":"noites"} · ${hospedes.options[hospedes.selectedIndex].text}\n`
+      + `• Valor estimado ${brl(total)}\n\n`
+      + `Tem disponibilidade?`;
+    resBtn.href = wa(msg);
+  } else {
+    resTotal.firstChild.textContent = "Escolha as datas ";
+    resDetalhe.textContent = "A gente confirma a disponibilidade no WhatsApp";
+    resBtn.href = wa(`Olá! Vim pelo site do ${CONFIG.nome} e queria consultar disponibilidade.`);
+  }
+  resBtn.target = "_blank"; resBtn.rel = "noopener";
+}
+[entrada,saida,hospedes,selAcom].forEach(el => el.addEventListener("change", () => {
+  if (entrada.value) saida.min = entrada.value;
+  calcular();
+}));
+calcular();
+
+/* ── parallax das camadas da serra ── */
+const camadas = [...document.querySelectorAll(".serra svg")];
+if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  let tick = false;
+  addEventListener("scroll", () => {
+    if (tick) return;
+    tick = true;
+    requestAnimationFrame(() => {
+      const y = scrollY;
+      camadas.forEach(c => {
+        c.style.transform = `translate3d(0, ${y * parseFloat(c.dataset.p) * .35}px, 0)`;
+      });
+      tick = false;
+    });
+  }, { passive:true });
+}
+
+/* ── revelação ── */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
