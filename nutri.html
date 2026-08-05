@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Fabi Martiniano — Nutricionista</title>
+<meta name="description" content="Acompanhamento nutricional individualizado, online e presencial.">
+<meta property="og:title" content="Veja como ficaria a sua página de atendimento">
+<meta property="og:description" content="A pessoa conta o objetivo dela e chega no seu WhatsApp já qualificada.">
+<meta property="og:image" content="">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --tinta:#16241C;
+  --tinta-2:#5C6B62;
+  --papel:#FBFAF7;
+  --areia:#F1EEE7;
+  --linha:#DCD9D0;
+  --mata:#1F5F3F;
+  --mata-esc:#154730;
+  --manteiga:#F0C96B;
+
+  --display:"Young Serif",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,sans-serif;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--papel);color:var(--tinta);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding-bottom:80px;
+}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;text-align:left}
+:focus-visible{outline:2px solid var(--mata);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:1080px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section{padding-block:clamp(52px,8vw,94px)}
+.rule{height:1px;background:var(--linha);border:0}
+
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--mata)}
+.h1{font-family:var(--display);font-size:clamp(38px,7.4vw,72px);line-height:1.02;font-weight:400;letter-spacing:-.02em}
+.h2{font-family:var(--display);font-size:clamp(28px,4.8vw,44px);line-height:1.08;font-weight:400;letter-spacing:-.015em}
+.lede{font-size:clamp(16px,2.1vw,19px);color:var(--tinta-2);max-width:48ch}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--mata);color:#fff;padding:15px 26px;border-radius:999px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--mata-esc);transform:translateY(-1px)}
+.btn:disabled{background:var(--linha);color:var(--tinta-2);cursor:not-allowed;transform:none}
+.btn-sm{padding:11px 19px;font-size:14px}
+.btn-ghost{background:transparent;color:var(--tinta);border:1px solid var(--linha)}
+.btn-ghost:hover{background:var(--areia);color:var(--tinta)}
+
+.demo-flag{background:var(--tinta);color:var(--papel);text-align:center;font-size:12px;letter-spacing:.06em;padding:9px 16px}
+.demo-pitch{background:var(--mata);color:#fff;padding:clamp(28px,5vw,44px) var(--pad)}
+.demo-pitch .inner{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.demo-pitch h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,3.4vw,32px);line-height:1.12;max-width:21ch}
+.demo-pitch p{font-size:14px;opacity:.9;margin-top:9px;max-width:44ch}
+.demo-pitch .btn{background:#fff;color:var(--mata)}
+.demo-pitch .btn:hover{background:var(--areia)}
+
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{font-family:var(--display);font-size:20px;letter-spacing:-.01em;line-height:1.1}
+.brand small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);font-weight:600;margin-top:3px}
+.nav-links{display:none;gap:24px;font-size:14px;color:var(--tinta-2)}
+.nav-links a:hover{color:var(--tinta)}
+@media(min-width:880px){.nav-links{display:flex}}
+
+/* hero */
+.hero{padding-top:clamp(18px,3vw,34px);padding-bottom:clamp(34px,6vw,64px)}
+.hero-grid{display:grid;gap:clamp(28px,5vw,54px)}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}}
+.hero-copy>*+*{margin-top:20px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.selos{display:flex;flex-wrap:wrap;gap:0 28px;margin-top:30px;padding-top:20px;border-top:1px solid var(--linha);font-size:13px;color:var(--tinta-2)}
+.selos b{display:block;font-family:var(--display);font-size:24px;color:var(--tinta);line-height:1.1;font-weight:400}
+
+/* placeholders */
+.ph{
+  position:relative;aspect-ratio:4/5;display:flex;align-items:flex-end;overflow:hidden;border-radius:6px;
+  background:
+    radial-gradient(120% 90% at 24% 16%,#B8C4B4 0%,transparent 58%),
+    radial-gradient(100% 80% at 82% 84%,#7E9280 0%,transparent 60%),
+    linear-gradient(158deg,#8C9C8A,#2A3A2E);
+}
+.ph span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);padding:13px 15px;line-height:1.4}
+.ph.sq{aspect-ratio:1}
+.ph.wide{aspect-ratio:16/10}
+
+/* ══ QUALIFICAÇÃO — assinatura ══ */
+.quiz{background:var(--areia);border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+.quiz-topo{display:flex;border-bottom:1px solid var(--linha)}
+.quiz-topo div{
+  flex:1;padding:13px 12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--tinta-2);border-right:1px solid var(--linha);transition:.2s ease;
+}
+.quiz-topo div:last-child{border-right:0}
+.quiz-topo div.feito{color:var(--mata)}
+.quiz-topo div.agora{background:var(--mata);color:#fff}
+
+.painel{padding:clamp(20px,3.4vw,32px);display:none}
+.painel.on{display:block}
+.painel .titulo{font-family:var(--display);font-size:clamp(23px,3.4vw,32px);line-height:1.1;font-weight:400}
+.painel .ajuda{font-size:14px;color:var(--tinta-2);margin-top:8px}
+
+.opcoes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:22px}
+.op{
+  background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:16px 17px;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease;
+}
+.op:hover{border-color:var(--tinta-2);transform:translateY(-2px)}
+.op[aria-pressed="true"]{border-color:var(--mata);box-shadow:inset 0 0 0 1px var(--mata);background:#F2F7F3}
+.op .n{display:block;font-size:15.5px;font-weight:600}
+.op .d{display:block;font-size:13px;color:var(--tinta-2);margin-top:3px;line-height:1.4}
+
+.acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--linha)}
+.resumo{font-size:13.5px;color:var(--tinta-2);line-height:1.4;flex:1;min-width:170px}
+.resumo b{display:block;font-family:var(--display);font-size:19px;font-weight:400;color:var(--tinta)}
+.voltar{font-size:14px;color:var(--tinta-2);text-decoration:underline;text-underline-offset:3px}
+.voltar:hover{color:var(--tinta)}
+
+/* como funciona */
+.passos{display:grid;gap:2px;margin-top:34px;background:var(--linha);border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+@media(min-width:760px){.passos{grid-template-columns:repeat(3,1fr)}}
+.passo{background:var(--papel);padding:26px 22px}
+.passo .n{font-family:var(--display);font-size:34px;color:var(--manteiga);line-height:1}
+.passo b{display:block;font-family:var(--display);font-size:20px;font-weight:400;margin-top:12px}
+.passo p{font-size:14.5px;color:var(--tinta-2);margin-top:7px}
+
+/* para quem */
+.listas{display:grid;gap:clamp(20px,4vw,40px);margin-top:32px}
+@media(min-width:760px){.listas{grid-template-columns:1fr 1fr}}
+.lista{background:var(--areia);border-radius:10px;padding:clamp(20px,3vw,28px)}
+.lista h3{font-family:var(--display);font-size:22px;font-weight:400}
+.lista ul{list-style:none;margin-top:14px}
+.lista li{padding:9px 0 9px 24px;position:relative;font-size:15.5px;border-bottom:1px solid var(--linha)}
+.lista li:last-child{border-bottom:0}
+.lista li::before{content:"";position:absolute;left:0;top:17px;width:9px;height:9px;border-radius:50%;background:var(--mata)}
+
+/* planos */
+.planos{display:grid;gap:clamp(16px,2.6vw,22px);margin-top:32px}
+@media(min-width:760px){.planos{grid-template-columns:repeat(3,1fr)}}
+.plano{background:var(--papel);border:1px solid var(--linha);border-radius:10px;padding:clamp(20px,3vw,26px);display:flex;flex-direction:column}
+.plano.destaque{border-color:var(--mata);box-shadow:inset 0 0 0 1px var(--mata)}
+.plano .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mata)}
+.plano h3{font-family:var(--display);font-size:24px;font-weight:400;margin-top:10px}
+.plano .val{font-family:var(--display);font-size:36px;font-weight:400;margin-top:12px;line-height:1}
+.plano .val small{font-family:var(--body);font-size:13px;color:var(--tinta-2);display:block;margin-top:5px}
+.plano ul{list-style:none;margin-top:16px;flex:1}
+.plano li{font-size:14.5px;color:var(--tinta-2);padding:7px 0 7px 20px;position:relative}
+.plano li::before{content:"–";position:absolute;left:0;color:var(--mata)}
+.plano .btn{margin-top:18px;width:100%}
+
+/* sobre */
+.sobre-grid{display:grid;gap:clamp(26px,5vw,50px);margin-top:32px}
+@media(min-width:820px){.sobre-grid{grid-template-columns:.85fr 1.15fr;align-items:center}}
+.sobre-grid p+p{margin-top:14px}
+
+/* depoimentos */
+.quotes{display:grid;gap:clamp(18px,3.4vw,28px);margin-top:32px}
+@media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote{background:var(--areia);border-radius:10px;padding:22px}
+.quote p{font-size:16px;line-height:1.5}
+.quote cite{display:block;margin-top:14px;font-size:13px;font-style:normal;color:var(--tinta-2);letter-spacing:.03em}
+
+/* faq */
+.faq{margin-top:30px;border-top:1px solid var(--linha)}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{padding:17px 2px;cursor:pointer;font-size:16.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--mata);font-size:21px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq .resp{padding:0 2px 18px;font-size:15.5px;color:var(--tinta-2);max-width:64ch}
+
+footer{background:var(--tinta);color:#9AA89F;padding-block:clamp(44px,7vw,68px)}
+footer .brand{color:var(--papel);font-size:24px}
+footer .brand small{color:#6E7E74}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.foot-grid{display:grid;gap:24px;margin-top:26px}
+@media(min-width:760px){.foot-grid{grid-template-columns:repeat(3,1fr)}}
+.foot-grid h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5C6B62;margin-bottom:10px;font-weight:700}
+.credit{margin-top:34px;padding-top:20px;border-top:1px solid #2C3B33;font-size:12px;color:#5C6B62}
+
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(251,250,247,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--linha);padding:12px var(--pad);
+  display:flex;align-items:center;gap:14px;justify-content:space-between;
+}
+.dock-txt{font-size:13px;color:var(--tinta-2);line-height:1.3}
+.dock-txt b{display:block;color:var(--tinta);font-family:var(--display);font-size:17px;font-weight:400}
+.dock .btn{background:#1FA855;flex:0 0 auto}
+.dock .btn:hover{background:#178B45}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-flag" id="demoFlag">Modelo de demonstração — as fotos e os textos entram depois, com o seu material</div>
+
+<div class="wrap">
+  <nav>
+    <span class="brand"><span data-nome>Fabi Martiniano</span><small data-crn>CRN 0 00000</small></span>
+    <div class="nav-links">
+      <a href="#comecar">Começar</a>
+      <a href="#como">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#sobre">Sobre mim</a>
+    </div>
+    <a class="btn btn-sm" href="#comecar">Quero começar</a>
+  </nav>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div class="hero-copy rv">
+      <span class="eyebrow">Nutrição individualizada</span>
+      <h1 class="h1">Um plano que cabe na sua rotina de verdade.</h1>
+      <p class="lede">Nada de dieta genérica que dura duas semanas. A gente monta junto, olhando seus horários, seu orçamento e o que você realmente gosta de comer.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#comecar">Começar agora</a>
+        <a class="btn btn-ghost" href="#como">Como funciona</a>
+      </div>
+      <div class="selos">
+        <div><b>Online</b>ou presencial</div>
+        <div><b>7 anos</b>de consultório</div>
+        <div><b>+400</b>atendimentos</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="ph" data-foto="hero"><span>Foto 1 — você no consultório,<br>luz natural. Trocar aqui.</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ QUALIFICAÇÃO ══ -->
+<section id="comecar" class="wrap" style="padding-top:clamp(26px,4vw,46px)">
+  <div class="rv" style="margin-bottom:24px">
+    <span class="eyebrow">Primeiro passo</span>
+    <h2 class="h2" style="margin-top:10px">Me conta o que você quer</h2>
+    <p class="lede" style="margin-top:12px">Três perguntas rápidas. No fim você manda direto no meu WhatsApp e eu já respondo sabendo do que se trata.</p>
+  </div>
+
+  <div class="quiz rv">
+    <div class="quiz-topo">
+      <div id="t1" class="agora">Objetivo</div>
+      <div id="t2">Histórico</div>
+      <div id="t3">Formato</div>
+    </div>
+
+    <div class="painel on" id="p1">
+      <p class="titulo">O que te trouxe até aqui?</p>
+      <p class="ajuda">Escolha o que mais combina com o seu momento.</p>
+      <div class="opcoes" id="opObjetivo"></div>
+      <div class="acoes">
+        <div class="resumo" id="r1">Escolha uma opção</div>
+        <button class="btn" id="ir2" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <div class="painel" id="p2">
+      <p class="titulo">Você já fez acompanhamento antes?</p>
+      <p class="ajuda">Isso muda bastante o jeito da primeira consulta.</p>
+      <div class="opcoes" id="opHistorico"></div>
+      <div class="acoes">
+        <button class="voltar" type="button" data-voltar="1">← voltar</button>
+        <button class="btn" id="ir3" disabled>Continuar</button>
+      </div>
+    </div>
+
+    <div class="painel" id="p3">
+      <p class="titulo">Como prefere ser atendida?</p>
+      <p class="ajuda">Atendo dos dois jeitos, com o mesmo acompanhamento.</p>
+      <div class="opcoes" id="opFormato"></div>
+      <div class="acoes">
+        <button class="voltar" type="button" data-voltar="2">← voltar</button>
+        <div class="resumo" id="rFinal"><b>—</b></div>
+        <a class="btn" id="btnFinal">Mandar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ COMO FUNCIONA ══ -->
+<section id="como" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">O processo</span>
+    <h2 class="h2" style="margin-top:10px">Como funciona</h2>
+  </div>
+  <div class="passos rv">
+    <div class="passo">
+      <span class="n">1</span>
+      <b>Primeira consulta</b>
+      <p>Uma hora conversando sobre rotina, histórico, exames e o que você já tentou. Avaliação corporal completa.</p>
+    </div>
+    <div class="passo">
+      <span class="n">2</span>
+      <b>Seu plano</b>
+      <p>Em até 3 dias você recebe o plano montado, com lista de compras e substituições pra quando a semana virar.</p>
+    </div>
+    <div class="passo">
+      <span class="n">3</span>
+      <b>Acompanhamento</b>
+      <p>Retornos a cada 30 dias e canal aberto no WhatsApp entre as consultas pra dúvida do dia a dia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARA QUEM ══ -->
+<section class="wrap" style="padding-top:0">
+  <div class="rv">
+    <span class="eyebrow">Encaixe</span>
+    <h2 class="h2" style="margin-top:10px">Pra quem é (e pra quem não é)</h2>
+  </div>
+  <div class="listas rv">
+    <div class="lista">
+      <h3>Faz sentido se você</h3>
+      <ul>
+        <li>Já tentou várias dietas e nenhuma durou</li>
+        <li>Quer entender o porquê, não só receber cardápio</li>
+        <li>Tem rotina corrida e pouco tempo pra cozinhar</li>
+        <li>Precisa de ajuste por causa de exame ou diagnóstico</li>
+        <li>Treina e quer alinhar a alimentação ao objetivo</li>
+      </ul>
+    </div>
+    <div class="lista">
+      <h3>Talvez não seja</h3>
+      <ul>
+        <li>Se você procura resultado em uma semana</li>
+        <li>Se quer só um PDF de cardápio pronto</li>
+        <li>Se não pretende voltar pros retornos</li>
+        <li>Se busca fórmula, suplemento ou atalho</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ PLANOS ══ -->
+<section id="planos" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Investimento</span>
+    <h2 class="h2" style="margin-top:10px">Planos</h2>
+  </div>
+  <div class="planos rv" id="listaPlanos"></div>
+  <p class="rv" style="margin-top:16px;font-size:13.5px;color:var(--tinta-2)">Pagamento no PIX ou cartão em até 3x. Emito recibo para reembolso do plano de saúde.</p>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ SOBRE ══ -->
+<section id="sobre" class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Quem atende</span>
+    <h2 class="h2" style="margin-top:10px">Sobre mim</h2>
+  </div>
+  <div class="sobre-grid rv">
+    <div class="ph" data-foto="retrato"><span>Foto 2 — retrato</span></div>
+    <div>
+      <p style="font-size:17px">Sou <span data-nome>Fabi Martiniano</span>, nutricionista formada há sete anos e atuando com acompanhamento individualizado desde então.</p>
+      <p>Trabalho com uma ideia simples: plano que você não consegue seguir não é plano, é frustração agendada. Por isso a primeira consulta é longa — preciso entender a sua rotina antes de propor qualquer coisa.</p>
+      <p>Atendo online para todo o Brasil e presencialmente aqui em Atibaia.</p>
+      <a class="btn" style="margin-top:20px" data-wa="Olá! Vim pelo site e queria saber mais sobre o acompanhamento.">Falar comigo</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"></div>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<section class="wrap">
+  <div class="rv">
+    <span class="eyebrow">Pacientes</span>
+    <h2 class="h2" style="margin-top:10px">O que dizem</h2>
+  </div>
+  <div class="quotes rv">
+    <blockquote class="quote">
+      <p>“Foi a primeira vez que alguém perguntou o que eu gosto de comer antes de montar o plano. Isso mudou tudo.”</p>
+      <cite>Paciente · acompanhamento de 6 meses</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“A lista de substituições salvou. Quando a semana vira do avesso eu não preciso desistir, só troco.”</p>
+      <cite>Paciente · acompanhamento de 4 meses</cite>
+    </blockquote>
+    <blockquote class="quote">
+      <p>“Poder mandar dúvida no WhatsApp entre as consultas fez eu não travar em decisão boba de supermercado.”</p>
+      <cite>Paciente · atendimento online</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="wrap" style="padding-top:0">
+  <div class="rv">
+    <span class="eyebrow">Dúvidas</span>
+    <h2 class="h2" style="margin-top:10px">Perguntas frequentes</h2>
+  </div>
+  <div class="faq rv">
+    <details>
+      <summary>Quanto tempo dura a primeira consulta?</summary>
+      <div class="resp">Cerca de uma hora. É a consulta mais longa do acompanhamento, porque é onde eu entendo sua rotina, histórico e preferências antes de montar qualquer coisa.</div>
+    </details>
+    <details>
+      <summary>Preciso levar exames?</summary>
+      <div class="resp">Se você tiver exames recentes, traga — ajuda bastante. Se não tiver, a gente conversa na consulta se vale a pena solicitar.</div>
+    </details>
+    <details>
+      <summary>O atendimento online funciona igual?</summary>
+      <div class="resp">Sim. A consulta é por vídeo e a avaliação é feita com medidas que eu te oriento a tirar. O plano e o acompanhamento são os mesmos.</div>
+    </details>
+    <details>
+      <summary>Vou precisar cortar tudo que eu gosto?</summary>
+      <div class="resp">Não. Plano que corta tudo é plano que ninguém segue. A gente ajusta quantidade e frequência, mantendo o que faz sentido pra você.</div>
+    </details>
+    <details>
+      <summary>Dá para pedir reembolso no plano de saúde?</summary>
+      <div class="resp">Emito recibo com os dados necessários. O reembolso depende das regras do seu plano — vale confirmar com eles antes.</div>
+    </details>
+  </div>
+</section>
+
+<div class="demo-pitch" id="demoPitch">
+  <div class="inner">
+    <div>
+      <h3>Sua página pode estar no ar esta semana.</h3>
+      <p>Com as suas fotos, seus planos e seu WhatsApp — e a pessoa já chega dizendo o objetivo dela, sem você precisar perguntar.</p>
+    </div>
+    <a class="btn" id="pitchBtn">Falar com o Lorenzo</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><span data-nome>Fabi Martiniano</span><small data-crn>CRN 0 00000</small></span>
+    <div class="foot-grid">
+      <div><h4>Contato</h4><p><a data-wa="Olá! Vim pelo site.">WhatsApp</a><br><a href="#" id="linkInsta">Instagram</a></p></div>
+      <div><h4>Atendimento</h4><p>Online para todo o Brasil<br>Presencial em Atibaia, SP</p></div>
+      <div><h4>Horários</h4><p>Segunda a sexta<br>8h — 18h</p></div>
+    </div>
+    <p class="credit">© <span id="ano"></span> <span data-nome>Fabi Martiniano</span> · <span data-crn>CRN 0 00000</span>. Site por Lorenzo Carvalho — Atibaia.</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <div class="dock-txt"><b>Vamos começar?</b>Resposta no mesmo dia</div>
+  <a class="btn" data-wa="Olá! Vim pelo site e queria saber mais sobre o acompanhamento.">WhatsApp</a>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ▼▼▼  MUDE SÓ ESTE BLOCO  ▼▼▼
+   ═══════════════════════════════════════════════════════ */
+const CONFIG = {
+  modo: "demo",              // "demo" = seus botões · "cliente" = botões dela
+  nome: "Fabi Martiniano",
+  crn: "CRN 0 00000",        // obrigatório por lei aparecer no site
+  instagram: "fabimartiniano",
+  meuWhatsapp: "5511973432311",
+  whatsappCliente: "5511900000000",
+
+  // Nome dos arquivos de imagem que subir no repositório. "" = bloco cinza.
+  fotos: { hero:"", retrato:"" },
+
+  objetivos: [
+    { n:"Emagrecimento",        d:"Perder peso com saúde e sem efeito sanfona" },
+    { n:"Ganho de massa",       d:"Alinhar alimentação ao treino" },
+    { n:"Saúde e exames",       d:"Colesterol, glicemia, pressão, tireoide" },
+    { n:"Intestino e digestão", d:"Inchaço, intolerâncias, desconforto" },
+    { n:"Reeducação alimentar", d:"Mudar a relação com a comida de vez" },
+    { n:"Outro",                d:"Conto na conversa" }
+  ],
+
+  historico: [
+    { n:"Primeira vez",       d:"Nunca fiz acompanhamento com nutricionista" },
+    { n:"Já fiz antes",       d:"Mas parei ou não deu certo" },
+    { n:"Faço agora",         d:"Estou buscando uma segunda opinião" }
+  ],
+
+  formatos: [
+    { n:"Online",     d:"Consulta por vídeo, de onde você estiver" },
+    { n:"Presencial", d:"No consultório em Atibaia" },
+    { n:"Tanto faz",  d:"O que for melhor pra agenda" }
+  ],
+
+  planos: [
+    { tag:"Avulso",     nome:"Consulta única",       val:"R$ 250", obs:"pagamento único",
+      itens:["Consulta de 1 hora","Avaliação corporal","Plano alimentar completo","Lista de compras e substituições"] },
+    { tag:"Mais escolhido", nome:"Acompanhamento 3 meses", val:"R$ 650", obs:"ou 3x de R$ 220", destaque:true,
+      itens:["Tudo do plano avulso","2 consultas de retorno","Ajustes no plano a cada retorno","WhatsApp aberto entre consultas"] },
+    { tag:"Contínuo",   nome:"Acompanhamento 6 meses", val:"R$ 1.150", obs:"ou 6x de R$ 200",
+      itens:["Tudo do plano de 3 meses","5 consultas de retorno","Revisão de exames","Prioridade na agenda"] }
+  ]
+};
+/* ═══════════════════════════════════════════════════════
+   ▲▲▲  DAQUI PRA BAIXO NÃO PRECISA MEXER  ▲▲▲
+   ═══════════════════════════════════════════════════════ */
+
+const NOME = (new URLSearchParams(location.search).get("nome") || CONFIG.nome).slice(0, 60);
+const ehDemo = CONFIG.modo === "demo";
+const numero = ehDemo ? CONFIG.meuWhatsapp : CONFIG.whatsappCliente;
+const wa = t => `https://wa.me/${numero}?text=${encodeURIComponent(t)}`;
+
+document.querySelectorAll("[data-nome]").forEach(el => el.textContent = NOME);
+document.querySelectorAll("[data-crn]").forEach(el => el.textContent = CONFIG.crn);
+document.getElementById("ano").textContent = new Date().getFullYear();
+document.getElementById("linkInsta").href = "https://instagram.com/" + CONFIG.instagram;
+
+if (ehDemo){
+  const p = document.getElementById("pitchBtn");
+  p.href = wa("Oi Lorenzo! Vi a página de exemplo e queria uma pra mim.");
+  p.target = "_blank"; p.rel = "noopener";
+} else {
+  document.getElementById("demoFlag").remove();
+  document.getElementById("demoPitch").remove();
+}
+
+document.querySelectorAll("[data-wa]").forEach(el => {
+  el.href = wa(el.dataset.wa); el.target = "_blank"; el.rel = "noopener";
+});
+
+/* ── quiz ── */
+const escolha = { objetivo:null, historico:null, formato:null };
+
+function montarOpcoes(container, lista, campo, aoEscolher){
+  lista.forEach(o => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "op"; b.setAttribute("aria-pressed","false");
+    b.innerHTML = `<span class="n">${o.n}</span><span class="d">${o.d}</span>`;
+    b.addEventListener("click", () => {
+      container.querySelectorAll(".op").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      escolha[campo] = o.n;
+      aoEscolher(o);
+    });
+    container.appendChild(b);
+  });
+}
+
+const r1 = document.getElementById("r1");
+const ir2 = document.getElementById("ir2");
+const ir3 = document.getElementById("ir3");
+const rFinal = document.getElementById("rFinal");
+const btnFinal = document.getElementById("btnFinal");
+
+montarOpcoes(document.getElementById("opObjetivo"), CONFIG.objetivos, "objetivo", o => {
+  r1.textContent = o.n; ir2.disabled = false;
+});
+montarOpcoes(document.getElementById("opHistorico"), CONFIG.historico, "historico", () => {
+  ir3.disabled = false;
+});
+montarOpcoes(document.getElementById("opFormato"), CONFIG.formatos, "formato", () => {
+  rFinal.innerHTML = `<b>${escolha.objetivo}</b>${escolha.historico} · ${escolha.formato}`;
+  btnFinal.href = wa(
+    `Olá! Vim pelo site e queria começar o acompanhamento.\n\n`
+    + `• Objetivo: ${escolha.objetivo}\n`
+    + `• Histórico: ${escolha.historico}\n`
+    + `• Prefiro: ${escolha.formato}\n\n`
+    + `Como funciona pra começar?`
+  );
+  btnFinal.target = "_blank"; btnFinal.rel = "noopener";
+});
+
+const paineis = [null, document.getElementById("p1"), document.getElementById("p2"), document.getElementById("p3")];
+const topo    = [null, document.getElementById("t1"), document.getElementById("t2"), document.getElementById("t3")];
+
+function irPara(n){
+  paineis.slice(1).forEach((p,i) => p.classList.toggle("on", i+1 === n));
+  topo.slice(1).forEach((t,i) => {
+    t.classList.toggle("agora", i+1 === n);
+    t.classList.toggle("feito", i+1 < n);
+  });
+  document.getElementById("comecar").scrollIntoView({ behavior:"smooth", block:"start" });
+}
+ir2.addEventListener("click", () => irPara(2));
+ir3.addEventListener("click", () => irPara(3));
+document.querySelectorAll("[data-voltar]").forEach(b =>
+  b.addEventListener("click", () => irPara(Number(b.dataset.voltar))));
+
+/* ── planos ── */
+const lp = document.getElementById("listaPlanos");
+CONFIG.planos.forEach(p => {
+  const d = document.createElement("div");
+  d.className = "plano" + (p.destaque ? " destaque" : "");
+  d.innerHTML = `
+    <span class="tag">${p.tag}</span>
+    <h3>${p.nome}</h3>
+    <p class="val">${p.val}<small>${p.obs}</small></p>
+    <ul>${p.itens.map(i => `<li>${i}</li>`).join("")}</ul>
+    <a class="btn" target="_blank" rel="noopener"
+       href="${wa(`Olá! Vim pelo site e queria saber mais sobre o plano "${p.nome}".`)}">Quero este</a>`;
+  lp.appendChild(d);
+});
+
+/* ── fotos ── */
+document.querySelectorAll("[data-foto]").forEach(el => {
+  const arq = (CONFIG.fotos || {})[el.dataset.foto];
+  if (!arq) return;
+  const img = document.createElement("img");
+  img.src = arq; img.alt = ""; img.loading = "lazy";
+  img.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover";
+  el.prepend(img);
+  const s = el.querySelector("span"); if (s) s.remove();
+});
+
+/* ── revelação ── */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
